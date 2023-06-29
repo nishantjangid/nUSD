@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Web3modal example written in vanilla JavaScript and HTML</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Get some bootstrap default styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- Construct a Bootstrap layout -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- <h1>Web3modal example for vanille JavaScript and HTML</h1> -->
+
+          <p id="isActive">No wallet connected. Connect wallet to show accounts and their BNB balances.</p>
+
+          <div class="alert alert-danger" id="alert-error-https" style="display: none">
+            You can run this example only over HTTPS connection.
+          </div>
+
+          <div id="prepare">
+            <button class="btn btn-primary" id="btn-connect">
+              Connect wallet
+            </button>
+          </div>
+
+          <div id="connected" style="display: none">
+
+            <button class="btn btn-primary" id="btn-disconnect">
+              Disconnect wallet
+            </button>
+
+            <hr>
+
+            <div >
+        
+              <p>
+                <strong>Selected account:</strong> <span id="selected-account" ></span>
+            </p>
+            <p>
+            <strong>Balance:</strong> <span id="accountbalance" ></span>
+            </p>
+
+            </div>
+
+            <hr>       
+            <div class="row  m-auto">
+                <div class="col-md-12">
+                    <div>
+                        <p class=""><b>TotalSupply</b> : <span id="totalSupply">0</span></p>
+                    </div>
+                    <div>
+                        <p class=""><b>BNB usd Price</b> : <span id="bnbUsdPrice">0</span></p>
+                    </div>
+                    <div>
+                        <p ><b>Your nUSD</b> : <span id="usernUSD">0</span></p>
+                    </div>
+                    <div>
+                        <p ><b>Your Deposited BNB</b> : <span id="userEth">0</span></p>
+                    </div>
+                    <div>
+                        <p ><b>Your Pay token Amount</b> : <span id="userPayToken">0</span></p>
+                    </div>
+                    <div>
+                        <p ><a href="https://testnet.bscscan.com/address/0x62fa2ab0a70f33669abbf1ee5ea1c9bc6a2070a6" target="_blank">View Contract</a></p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+
+                    <div class="col-md-6">
+                        <div  style="display: flex;justify-content: space-between;flex-direction: column;">
+                            <div class="">
+                                <input class="form-control" type="number" step="any" placeholder="Enter BNB Amount" id="ethAmount"/>
+                                <button class="btn-primary btn w-100" onclick="invest()"  style="width: 100%;margin-top: 10px;" id="investBtn">Invest</button>
+                            </div>
+                            <div class="" style="margin-top: 10px;">
+                                <input class="form-control" type="number" step="any" placeholder="Enter nUSD Amount" id="nusdAmount"/>
+                                <button class="btn-primary btn " style="width: 100%;margin-top: 10px;" onclick="redeem()" id="redeemBtn">Redeem</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+
+          </div>
+
+          <br>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+
+    <!-- This is our example code -->
+    <script type="text/javascript" src="./main.js"></script>
+  </body>
+</html>
