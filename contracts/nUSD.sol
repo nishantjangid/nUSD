@@ -38,7 +38,7 @@ contract nUSD is ERC20, ERC20Burnable, Ownable {
         require(nusdAmount == nUSDPay,"Amount must be double of your deposited eth price");
         
         burnFrom(msg.sender,nUSDPay);
-        
+        userEthBalance[msg.sender] = 0;
         (bool success, ) = msg.sender.call{value: userEthAmount}("");
         require(success, "ETH transfer failed");
         
